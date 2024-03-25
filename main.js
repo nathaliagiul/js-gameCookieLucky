@@ -16,13 +16,21 @@ const screen1 = document.querySelector(".screen1");
 const screen2 = document.querySelector(".screen2");
 
 const btnReset = document.querySelector("#btnReset");
-const btnSort = document.querySelector("#btnSort");
+const btnSort = document.querySelector("#fortuneCookie");
 
 const msgLucky = document.querySelector(".msgLuck p");
 
 // Eventos
 btnReset.addEventListener('click', toggleScreens);
 btnSort.addEventListener('click', updateLuckyMessage);
+document.addEventListener('keydown', function(e) {
+    if(e.key == 'Enter' && screen2.classList.contains('hide')){
+        updateLuckyMessage()
+    } else if(e.key == 'Enter' && screen1.classList.contains('hide')){
+        toggleScreens()
+        }
+    }
+)
 
 // Função para atualizar a mensagem de sorte
 function updateLuckyMessage() {
